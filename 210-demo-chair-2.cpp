@@ -1,10 +1,13 @@
-// COMSC-210-5293 | Lab 18 | Yuyi Chen
+// COMSC-210-5293 | Lab 20 | Yuyi Chen
 
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 const int SIZE = 3;
+const int MIN = 10000, Max = 99999;
 
 class Chair {
 private:
@@ -14,15 +17,15 @@ public:
     // constructors
     Chair() {
         prices = new double[SIZE];
-        legs = 0;
+        legs = rand() % 2 + 3;;
         for (int i = 0; i < SIZE; i++)
-            prices[i] = 0;
+            prices[i] = (rand() % (MAX - MIN + 1) + MIN) / 100.0;
     }
-    Chair(int l) {
+    Chair(int l, double p[]) {
         prices = new double[SIZE];
         legs = l;
         for (int i = 0; i < SIZE; i++)
-            prices[i] = 0;
+            prices[i] = p[i];
     }
 
     // setters and getters
@@ -53,6 +56,7 @@ public:
 // so, have you found the easter egg in this module yet?
 
 int main() {
+    srand(time(0));
     cout << fixed << setprecision(2);
 
     // pointer to first chair object
