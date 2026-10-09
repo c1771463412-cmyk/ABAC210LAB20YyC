@@ -7,7 +7,7 @@
 
 using namespace std;
 const int SIZE = 3;
-const int MIN = 10000, Max = 99999;
+const int MIN = 10000, MAX = 99999;
 
 class Chair {
 private:
@@ -59,15 +59,17 @@ int main() {
     srand(time(0));
     cout << fixed << setprecision(2);
 
-    // pointer to first chair object
+    // Create a chair with random legs and prices
+    cout << "===== Default Chair =====" << endl;
     Chair *chairPtr = new Chair;
-    chairPtr->setLegs(4);
-    chairPtr->setPrices(121.21, 232.32, 414.14);
     chairPtr->print();
 
-    // dynamic chair object with constructor
-    Chair *livingChair = new Chair(3);
-    livingChair->setPrices(525.25, 434.34, 252.52);
+    // Create a chair with specific legs and prices
+    cout << "===== Parameter Chair =====" << endl;
+
+    double chairPrices[SIZE] = {525.25, 434.34, 252.52};
+    Chair *livingChair = new Chair(3, chairPrices);
+
     livingChair->print();
     delete livingChair;
     livingChair = nullptr;
