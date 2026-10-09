@@ -14,10 +14,10 @@ private:
     int legs;
     double * prices;
 public:
-    // constructors
+    // Constructors
     Chair() {
         prices = new double[SIZE];
-        legs = rand() % 2 + 3;;
+        legs = rand() % 2 + 3;
         for (int i = 0; i < SIZE; i++)
             prices[i] = (rand() % (MAX - MIN + 1) + MIN) / 100.0;
     }
@@ -82,7 +82,7 @@ int main() {
     delete livingChair;
     livingChair = nullptr;
 
-    // dynamic array of chair objects
+    // Create a dynamic array of random chair objects
     cout << "===== Chair Collection =====" << endl;
 
     Chair *collection = new Chair[SIZE];
