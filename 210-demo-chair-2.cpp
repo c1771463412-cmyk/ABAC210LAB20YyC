@@ -28,6 +28,11 @@ public:
             prices[i] = p[i];
     }
 
+    // Destructor
+    ~Chair() {
+        delete[] prices;
+    }
+
     // setters and getters
     void setLegs(int l)      { legs = l; }
     int getLegs()            { return legs; }
@@ -64,6 +69,9 @@ int main() {
     Chair *chairPtr = new Chair;
     chairPtr->print();
 
+    delete chairPtr;
+    chairPtr = nullptr;
+
     // Create a chair with specific legs and prices
     cout << "===== Parameter Chair =====" << endl;
 
@@ -83,6 +91,9 @@ int main() {
         cout << "Chair " << i + 1 << ":" << endl;
         collection[i].print();
     }
+
+    delete[] collection;
+    collection = nullptr;
 
     return 0;
 }
